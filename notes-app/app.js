@@ -1,2 +1,3 @@
-const name = require('./util.js')
-console.log(name)
+const getNotes = require('./notes.js')
+const msg = getNotes()
+console.log(msg)
