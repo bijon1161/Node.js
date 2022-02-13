@@ -1,2 +1,2 @@
-const fs = require('fs')
-fs.appendFileSync('notes.txt',',by Bijon')
+const name = require('./util.js')
+console.log(name)
