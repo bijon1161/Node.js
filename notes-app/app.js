@@ -1,5 +1,6 @@
 const chalk = require('chalk')
 const yargs = require('yargs')
+const notes = require('./notes.js')
 
 const error = chalk.bold.cyan
 const warning = chalk.bold.yellow
@@ -23,8 +24,7 @@ yargs.command({
 
     },
     handler: function(argv){
-        console.log(error("Title: "+argv.title))
-        console.log(success("Body: "+argv.body))
+        notes.addNote(argv.title,argv.body)
     }
 })
 
