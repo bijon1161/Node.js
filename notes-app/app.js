@@ -4,6 +4,13 @@ const error = chalk.bold.red
 const warning = chalk.bold.yellow
 const success = chalk.bold.green
 
-console.log(error("Try again!"))
-console.log(warning("Are you sure?"))
-console.log(success("You've succeeded"))
+if (process.argv[2]==="add")
+{
+    console.log(success("Adding items"))
+}
+else if(process.argv[2]==="remove")
+{
+    console.log(warning("Removing items"))
+}
+
+
