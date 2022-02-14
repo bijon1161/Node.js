@@ -1,3 +1,9 @@
-const validator = require('validator')
+const chalk = require('chalk')
 
-console.log(validator.isEmail('bijonndc@gmail.com'))
+const error = chalk.bold.red
+const warning = chalk.bold.yellow
+const success = chalk.bold.green
+
+console.log(error("Try again!"))
+console.log(warning("Are you sure?"))
+console.log(success("You've succeeded"))
