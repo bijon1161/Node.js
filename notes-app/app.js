@@ -8,8 +8,23 @@ const success = chalk.bold.green
 yargs.command({
     command: "add",
     description: "Adding item",
-    handler: function(){
-        console.log(error("Adding item in the list"))
+    builder: {
+        title:{
+            describe: "Note title",
+            demandOption: true,
+            type: "string",
+        },
+        body:{
+            describe: "Body element",
+            demandOption: true,
+            type: "string",
+
+        }
+
+    },
+    handler: function(argv){
+        console.log(error("Title: "+argv.title))
+        console.log(success("Body: "+argv.body))
     }
 })
 
@@ -37,4 +52,5 @@ yargs.command({
     }
 })
 
-console.log(yargs.argv)
+yargs.parse()
+
