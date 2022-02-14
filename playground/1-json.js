@@ -6,4 +6,6 @@ const book = {
 
 const bookJSON = JSON.stringify(book)
 
-fs.writeFileSync("1-json.json",bookJSON)
+const dataBuffer = fs.readFileSync("1-json.json")
+const dataJSON = JSON.parse(dataBuffer.toString())
+console.log(dataJSON.author)
