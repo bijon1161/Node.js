@@ -1,3 +1,3 @@
-const getNotes = require('./notes.js')
-const msg = getNotes()
-console.log(msg)
+const validator = require('validator')
+
+console.log(validator.isEmail('bijonndc@gmail.com'))
