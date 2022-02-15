@@ -32,6 +32,17 @@ const removeNote = (title) => {
 
 }
 
+const showingList = ()=>{
+    const notes = loadNotes()
+    
+    notes.forEach((note)=>{
+        console.log(chalk.blueBright.bold.underline("Title:")+" "+note.title+"\n"+chalk.magentaBright("Description:")+" "+note.body)
+    })
+    // notes.foreach((note)=>{
+    //     console.log(chalk.blackBright.bold.inverse.underline(" Title : "+note.title)+chalk.magenta.inverse(" Description : "+note.body))
+    // })
+}
+
 const loadNotes = () => {
     try{
         const dataBuffer = fs.readFileSync('notes.json');
@@ -50,5 +61,6 @@ const saveNotes = (notes) =>  {
 
 module.exports = {
     addNote : addNote,
-    removeNote : removeNote
+    removeNote : removeNote,
+    showingList : showingList
 }
