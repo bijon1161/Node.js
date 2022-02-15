@@ -56,6 +56,9 @@ const removeNote = function(title){
            console.log(chalk.green("Note has been removed!"))
            
         }
+        if (note.title!==title){
+            saveNotes(note)
+        }
         
     })
     if(v===0)
