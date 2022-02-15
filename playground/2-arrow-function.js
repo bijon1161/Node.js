@@ -6,4 +6,6 @@ const cube = (x) =>{
     return x*x*x
 }
 
-console.log(cube(3))
+const square = (x) => x*x
+
+console.log(square(3))
