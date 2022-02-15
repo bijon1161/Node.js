@@ -1,64 +1,39 @@
-const chalk = require('chalk')
-const yargs = require('yargs')
-const notes = require('./notes.js')
-
-const error = chalk.bold.cyan
-const warning = chalk.bold.yellow
-const success = chalk.bold.green
+const yargs = require('yargs');
+const notes = require('./notes.js');
 
 yargs.command({
-    command: "add",
-    description: "Adding item",
+    command : 'add',
+    describe: "Adding a Note",
     builder: {
-        title:{
-            describe: "Note title",
+        title : {
+            describe: 'Note Title',
             demandOption: true,
-            type: "string",
+            type : 'string'
         },
-        body:{
-            describe: "Body element",
+        body: {
+            describe: 'Note Body',
             demandOption: true,
-            type: "string",
-
+            type : 'string'
         }
-
     },
     handler: function(argv){
-        notes.addNote(argv.title,argv.body)
+        notes.addNote(argv.title, argv.body);        
     }
 })
 
 yargs.command({
-    command: "remove",
-    description: "Removing item",
+    command : 'remove',
+    describe: "Removing a Note",
     builder: {
-        title:{
-            describe: "checking title",
+        title : {
+            describe: 'Note Title',
             demandOption: true,
-            type: "string"
+            type : 'string'
         }
-
     },
     handler: function(argv){
-        notes.removeNote(argv.title)
+        notes.removeNote(argv.title);        
     }
 })
 
-yargs.command({
-    command: "read",
-    description: "Reading item",
-    handler: function(){
-        console.log(success("Reading item form the list"))
-    }
-})
-
-yargs.command({
-    command: "list",
-    description: "Showing item",
-    handler: function(){
-        console.log(success("Showing item of the list"))
-    }
-})
-
-yargs.parse()
-
+yargs.parse();
