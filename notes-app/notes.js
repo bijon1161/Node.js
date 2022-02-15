@@ -45,9 +45,35 @@ const loadNotes =function(){
     }
 }
 
+const removeNote = function(title){
+    notes= loadNotes()
+    var v=0
+    notes.filter(function(note){
+        
+        if (note.title===title){
+           // notes.pop(title)
+           v=1
+           console.log(chalk.green("Note has been removed!"))
+           
+        }
+        
+    })
+    if(v===0)
+    {
+        
+        console.log(chalk.red("Note title is invalid"))
+    
+        
+    }
+    
+    
+
+}
+
 
 module.exports =
 {
     getNotes: getNotes,
-    addNote: addNote
+    addNote: addNote,
+    removeNote: removeNote
 } 
