@@ -1,30 +1,26 @@
 const fs = require('fs');
 const chalk = require('chalk');
 
-const addNote = function(title, body){
+const addNote = (title, body) => {
     const notes = loadNotes();
-    const duplicateNotes = notes.filter(function (note) {
-        return note.title === title;
-    });
+    const duplicateNotes = notes.filter((note) => note.title === title);
     if(duplicateNotes.length === 0){
         notes.push({
             title: title,
             body: body
         })
         saveNotes(notes);
-        console.log('\nNew Note Added Successfully!!!\n');
+        console.log(chalk.green.inverse('New Note Added Successfully!'));
     }
     else{
-        console.log("\nNote Title already existed!!!\n");
+        console.log(chalk.red.inverse("Note Title already existed!"));
     }
 }
 
-const removeNote = function(title){
+const removeNote = (title) => {
 
     const notes = loadNotes()
-    const notesToKeep = notes.filter(function (note) {
-        return note.title !== title
-    })
+    const notesToKeep = notes.filter((note) => note.title !== title)
 
     if (notes.length > notesToKeep.length) {
         console.log(chalk.green.inverse('Note removed'));
@@ -36,7 +32,7 @@ const removeNote = function(title){
 
 }
 
-const loadNotes = function() {
+const loadNotes = () => {
     try{
         const dataBuffer = fs.readFileSync('notes.json');
         const dataJSON = dataBuffer.toString();
@@ -47,7 +43,7 @@ const loadNotes = function() {
     }
 }
 
-const saveNotes = function(notes)  {
+const saveNotes = (notes) =>  {
     const dataJSON = JSON.stringify(notes);
     fs.writeFileSync('notes.json', dataJSON);
 }
